@@ -5,6 +5,20 @@ const db = require('../db')
 // If you aren't getting to this object, but rather the index.html (something with a joke) your path is wrong.
 	// I know this because we automatically send index.html for all requests that don't make sense in our backend.
 	// Ideally you would have something to handle this, so if you have time try that out!
-api.get('/hello', (req, res) => res.send({hello: 'world'}))
 
-module.exports = api
+
+// api.get('/hello', (req, res) => res.send({hello: 'world'}))
+
+api.use('/student', require('./routes/StudentRouter'));
+
+api.use('/campus', require('./routes/CampusRouter'));
+
+//ERROR HANDLING - MAKE MORE SPECIFIC
+api.use(function(req, res, next, err) {
+	if (err) {
+		console.error(err);
+	}
+	// res.status(err.status || 500).send(err.message);
+})
+
+module.exports = api;
