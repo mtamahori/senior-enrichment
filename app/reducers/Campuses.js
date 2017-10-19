@@ -1,21 +1,18 @@
 import axios from 'axios';
 
-//action types
-
+// CAMPUS ACTION TYPES
 const INIT_CAMPUSES = 'INIT_CAMPUSES';
 const CREATE_CAMPUS = 'CREATE_CAMPUS';
 const EDIT_CAMPUS = 'EDIT_CAMPUS';
 const DELETE_CAMPUS = 'DELETE_CAMPUS';
 
-//action creators
-
+// CAMPUS ACTION CREATORS
 const initCampuses = campuses => ({ type: INIT_CAMPUSES, campuses});
 const createCampus = campus => ({ type: CREATE_CAMPUS, campus });
 const editCampus = campus => ({ type: EDIT_CAMPUS, campus});
 const deleteCampus = campus => ({ type: DELETE_CAMPUS, campus});
 
-//reducer
-
+// CAMPUS REDUCER
 export default function reducer(campuses = [], action) {
   switch (action.type) {
 
@@ -38,8 +35,7 @@ export default function reducer(campuses = [], action) {
   }
 }
 
-//thunk creators
-
+// CAMPUS THUNK CREATORS
 export const fetchCampuses = () => dispatch => {
   axios.get('/api/campus')
     .then(res => dispatch(initCampuses(res.data)))

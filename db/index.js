@@ -17,5 +17,5 @@ module.exports = new Sequelize(connectionString, {
 });
 
 
-require('./models')
 // run our models file (makes all associations for our Sequelize objects)
+require('./models')

@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Student = require('../../db/models/StudentModel');
 
+// GET ALL STUDENTS
 router.get('/', function(req, res, next) {
   Student.findAll({})
     .then(student => {
@@ -9,6 +10,7 @@ router.get('/', function(req, res, next) {
     .catch(next);
 });
 
+// GET STUDENT BY ID
 router.get('/:id', function(req, res, next) {
   Student.findOne({
     where: {
@@ -21,6 +23,7 @@ router.get('/:id', function(req, res, next) {
   .catch(next);
 });
 
+// CREATE NEW STUDENT
 router.post('/', function(req, res, next) {
   Student.create(req.body)
     .then(student => {
@@ -29,6 +32,7 @@ router.post('/', function(req, res, next) {
     .catch(next);
 });
 
+// EDIT STUDENT INFO
 router.put('/:id', function(req, res, next) {
   Student.findOne({
     where: {
@@ -44,6 +48,7 @@ router.put('/:id', function(req, res, next) {
   .catch(next);
 });
 
+// DELETE STUDENT
 router.delete('/:id', function(req, res, next) {
   Student.findOne({
     where: {

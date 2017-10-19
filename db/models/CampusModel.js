@@ -10,8 +10,7 @@ const Campus = db.define('campus', {
 
   photo: {
     type: Sequelize.STRING,
-    allowNull: true,
-    // defaultValue: 'image'
+    defaultValue: '../../public/favicon.ico'
   }
 
 });

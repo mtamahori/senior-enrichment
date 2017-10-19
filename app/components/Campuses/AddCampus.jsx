@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-const AddCampus = () => {
+// const AddCampus = () => {
+
+// }
+
+export default class AddCampus extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+
+  }
 
 }
-
-export default AddCampus;

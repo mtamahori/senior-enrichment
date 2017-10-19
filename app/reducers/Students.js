@@ -1,21 +1,18 @@
 import axios from 'axios';
 
-//action types
-
+// STUDENT ACTION TYPES
 const INIT_STUDENTS = 'INIT_STUDENTS';
 const CREATE_STUDENT = 'CREATE_STUDENT';
 const EDIT_STUDENT = 'EDIT_STUDENT';
 const DELETE_STUDENT = 'DELETE_STUDENT';
 
-//action creators
-
+// STUDENT ACTION CREATORS
 const initStudents = students => ({ type: INIT_STUDENTS, students });
 const createStudent = student => ({ type: CREATE_STUDENT, student });
 const editStudent = student => ({ type: EDIT_STUDENT, student});
 const deleteStudent = student => ({ type: DELETE_STUDENT, student});
 
-//reducer
-
+// STUDENT REDUCER
 export default function reducer(students = [], action) {
   switch (action.type) {
 
@@ -38,8 +35,7 @@ export default function reducer(students = [], action) {
   }
 }
 
-//thunk creators
-
+// STUDENT THUNK CREATORS
 export const fetchStudents = () => dispatch => {
   axios.get('/api/student')
     .then(res => dispatch(initStudents(res.data)))

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Router } from 'react-router';
 import { Route, Switch } from 'react-router-dom';
+// import { BrowserRouter as Router } from 'react-router-dom';
+
+import history from './history';
 
 import Root from './components/Root';
 import Navbar from './components/Navbar';
@@ -19,26 +22,26 @@ import StudentDetail from './components/Students/StudentDetail';
 import EditStudent from './components/Students/EditStudent';
 import AddStudent from './components/Students/AddStudent';
 
-class Routes extends Component {
+export default class Routes extends Component {
 
-  componentDidMount() {
-    this.props.fetchInitialData();
-  }
+  // componentDidMount() {
+  //   this.props.fetchInitialData();
+  // }
 
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <Root>
           <Switch>
-            <Route exact path="/" component{Home}/>
-            <Route exact path="/campuses" component{AllCampusesList}/>
-            <Route exact path="/campuses/:id" component{CampusDetail}/>
-            <Route exact path="/campuses/:id/edit" component{EditCampus}/>
-            <Route exact path="/campuses/add" component{AddCampus}/>
-            <Route exact path="/students" component{AllStudentsList}/>
-            <Route exact path="/students/:id" component{StudentDetail}/>
-            <Route exact path="/students/:id/edit" component{EditStudent}/>
-            <Route exact path="/students/add" component{AddStudent}/>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/campuses" component={AllCampusesList} />
+            <Route exact path="/campuses/add" component={AddCampus} />
+            <Route exact path="/campuses/:id" component={CampusDetail} />
+            <Route exact path="/campuses/:id/edit" component={EditCampus} />
+            <Route exact path="/students" component={AllStudentsList} />
+            <Route exact path="/students/add" component={AddStudent} />
+            <Route exact path="/students/:id" component={StudentDetail} />
+            <Route exact path="/students/:id/edit" component={EditStudent} />
           </Switch>
         </Root>
       </Router>
@@ -46,15 +49,16 @@ class Routes extends Component {
   }
 }
 
-const mapState = function(state) {
+// const mapState = function (state) {
 
-}
+// }
 
-const mapDispatch = dispatch => ({
-  fetchInitialData: () => {
-    dispatch(fetchCampuses());
-    dispatch(fetchStudents());
-  }
-});
+// const mapDispatch = dispatch => ({
+//   fetchInitialData: () => {
+//     dispatch(fetchCampuses());
+//     dispatch(fetchStudents());
+//   }
+// });
 
-export default connect(mapState, mapDispatch)(Routes);
+// export default connect(mapState, mapDispatch)(Routes);
+

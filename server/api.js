@@ -2,23 +2,15 @@
 const api = require('express').Router()
 const db = require('../db')
 
-// If you aren't getting to this object, but rather the index.html (something with a joke) your path is wrong.
-	// I know this because we automatically send index.html for all requests that don't make sense in our backend.
-	// Ideally you would have something to handle this, so if you have time try that out!
-
-
-// api.get('/hello', (req, res) => res.send({hello: 'world'}))
-
+// STUDENT ROUTER
 api.use('/student', require('./routes/StudentRouter'));
 
+// CAMPUS ROUTER
 api.use('/campus', require('./routes/CampusRouter'));
 
-//ERROR HANDLING - MAKE MORE SPECIFIC
+// ERROR HANDLING
 api.use(function(req, res, next, err) {
-	if (err) {
-		console.error(err);
-	}
-	// res.status(err.status || 500).send(err.message);
+	res.status(err.status || 500).send(err.message);
 })
 
 module.exports = api;
