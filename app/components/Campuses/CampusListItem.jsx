@@ -14,6 +14,9 @@ class CampusListItem extends Component {
     const { campus } = this.props;
     return (
       <div>
+        <div>
+          <img src={campus.photo} />
+        </div>
         <NavLink
           className="single-campus-link"
           activeClassName="active"
@@ -22,6 +25,7 @@ class CampusListItem extends Component {
             {campus.name}
           </h4>
         </NavLink>
+        <h5>(CampusID: {campus.id})</h5>
         <button
           className="btn btn-default"
           onClick={this.deleteThisCampus}>
@@ -36,9 +40,6 @@ class CampusListItem extends Component {
     event.stopPropagation();
     removeCampus(campus);
   }
-
-  //delete associated students
-  //
 
 }
 

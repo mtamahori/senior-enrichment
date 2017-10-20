@@ -9,6 +9,7 @@ import { updateStudent } from '../../reducers/Students';
 export default class StudentDetail extends Component {
   constructor(props) {
     super(props);
+
   }
 
   render() {
@@ -23,4 +24,5 @@ export default class StudentDetail extends Component {
 // const mapDispatch = null;
 
 // export default connect(mapState, mapDispatch)(StudentDetail);
+
 

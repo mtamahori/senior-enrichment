@@ -21,7 +21,7 @@ select {
     select:invalid:hover {
       color: #bbb; }
 
-.muted {
+/* .muted {
   opacity: 0.5; }
 
 .large-font {
@@ -309,4 +309,4 @@ input.form-like[disabled] {
   border: 1px dotted #777; }
   .story-container p {
     margin: 20px 0; }
-
+ */

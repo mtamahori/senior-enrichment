@@ -7,12 +7,7 @@ class AllStudentsList extends Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   name: '',
-    //   email: ''
-    // };
-
-    this.renderNewStudent = this.renderNewStudent.bind(this);
+    // this.renderNewStudent = this.renderNewStudent.bind(this);
     this.submitNewStudent = this.submitNewStudent.bind(this);
   }
 
@@ -23,6 +18,7 @@ class AllStudentsList extends Component {
           {this.renderNewStudent()}
         </div>
         <br />
+        <h4>-- All Current Students: </h4>
         <div className="student-list">
           {
             this.props.Students

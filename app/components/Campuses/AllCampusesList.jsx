@@ -7,11 +7,8 @@ class AllCampusesList extends Component {
   constructor(props) {
     super(props);
 
-    // this.state = {
-    //   name: ''
-    // };
-
-    this.renderNewCampus = this.renderNewCampus.bind(this);
+    // this.renderNewCampus = this.renderNewCampus.bind(this);
+    // this.renderCurrentCampuses = this.renderCurrentCampuses.bind(this);
     this.submitNewCampus = this.submitNewCampus.bind(this);
   }
 
@@ -23,10 +20,7 @@ class AllCampusesList extends Component {
         </div>
         <br />
         <div className="campus-list">
-          {
-            this.props.Campuses
-              .map(campus => <CampusListItem campus={campus} key={campus.id} />)
-          }
+          {this.renderCurrentCampuses()}
         </div>
       </div>
     );
@@ -53,6 +47,18 @@ class AllCampusesList extends Component {
             />
           </div>
         </form>
+      </div>
+    )
+  }
+
+  renderCurrentCampuses() {
+    return (
+      <div>
+        <h4>-- All Current Campuses: </h4>
+        {
+          this.props.Campuses
+            .map(campus => <CampusListItem campus={campus} key={campus.id} />)
+        }
       </div>
     )
   }

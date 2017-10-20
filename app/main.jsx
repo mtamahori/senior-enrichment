@@ -12,4 +12,3 @@ render(
   document.getElementById('main')
 );
 
-

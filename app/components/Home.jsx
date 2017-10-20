@@ -9,10 +9,13 @@ const Home = () => (
       <h1>F E E L</h1>
       <h1>I T</h1>
       <br />
+      <br />
       <h2>An Administrator's Tool for Managing</h2>
       <h2>Premier Educational Institutions</h2>
       <h2>of the</h2>
       <h2>International Underground</h2>
+      <br />
+      <br />
     </div>
   </div>
 )

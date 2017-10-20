@@ -36,20 +36,16 @@ class Routes extends Component {
         <Root>
           <Switch>
             <Route exact path="/" component={Home} />
-
             <Route exact path="/campuses" component={AllCampusesList} />
-
             <Route exact path="/campuses/:id" component={CampusDetail} />
-
             <Route exact path="/students" component={AllStudentsList} />
-
             <Route exact path="/students/:id" component={StudentDetail} />
-
           </Switch>
         </Root>
       </Router>
     );
   }
+
 }
 
 const mapState = null;
