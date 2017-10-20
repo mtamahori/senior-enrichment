@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import _ from 'lodash';
-
-import CampusListItem from '../Campuses/CampusListItem';
 
 import { updateStudent } from '../../reducers/Students';
 
@@ -19,6 +18,9 @@ class StudentDetail extends Component {
         <div className="current-student">
           {this.renderCurrentStudent()}
         </div>
+        <div className="current-student-campus">
+          {this.renderCurrentStudentCampus()}
+        </div>
         <br />
         <div className="edit-student-info">
           {this.renderEditStudentInfo()}
@@ -31,21 +33,50 @@ class StudentDetail extends Component {
   renderCurrentStudent() {
     return (
       <div>
-        {
-          this.props.Students
-            .filter(student => student.id === this.props.student.id)
-            .map(student =>
-              (
-                <div key={student.id}>
-                <h2> {'~~~ ' + student.name + ' ~~~'} </h2>
-                <h5> Email: {student.email} </h5>
-                <h5> Student ID: {student.id} </h5>
-                <h5> Campus ID: {student.campusId} </h5>
-                <h5> Campus: {'placeholder'} </h5>
-                </div>
+        <div className="current-student-info" >
+          {
+            this.props.Students
+              .filter(student => student.id === this.props.student.id)
+              .map(student =>
+                (
+                  <div key={student.id}>
+                    <h2> {'~~~ ' + student.name + ' ~~~'} </h2>
+                    <h5> Email: {student.email} </h5>
+                    <h5> Student ID: {student.id} </h5>
+                    <h5> Campus ID: {student.campusId} </h5>
+                  </div>
+                )
               )
-            )
-        }
+          }
+        </div>
+      </div>
+    )
+  }
+
+  renderCurrentStudentCampus() {
+    return (
+      <div>
+        <h5>Current Campus:</h5>
+        <div className="current-student-campus">
+          {
+            this.props.Campuses
+              .filter(campus => campus.id === this.props.student.campusId)
+              .map(campus =>
+                (
+                  <div key={campus.id}>
+                    <NavLink
+                      className="single-campus-link"
+                      activeClassName="active"
+                      to={`/campuses/${campus.id}`}>
+                      <h4>
+                        {campus.name}
+                      </h4>
+                    </NavLink>
+                  </div>
+                )
+              )
+          }
+        </div>
       </div>
     )
   }
@@ -115,7 +146,3 @@ const mapState = ({ Campuses, Students }, ownProps) => {
 const mapDispatch = { updateStudent };
 
 export default connect(mapState, mapDispatch)(StudentDetail);
-
-
-
-

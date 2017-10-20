@@ -7,7 +7,6 @@ class AllStudentsList extends Component {
   constructor(props) {
     super(props);
 
-    // this.renderNewStudent = this.renderNewStudent.bind(this);
     this.submitNewStudent = this.submitNewStudent.bind(this);
   }
 

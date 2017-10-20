@@ -6,16 +6,10 @@ import StudentListItem from '../Students/StudentListItem';
 import { addStudent } from '../../reducers/Students';
 import { updateCampus } from '../../reducers/Campuses';
 
-// import { fetchCampusById } from '../../reducers/Campuses';
-
 class CampusDetail extends Component {
   constructor(props) {
     super(props);
 
-    // this.renderCurrentCampus = this.renderCurrentCampus.bind(this);
-    // this.renderNewStudent = this.renderNewStudent.bind(this);
-    // this.renderEnrolledStudents = this.renderEnrolledStudents.bind(this);
-    // this.renderEditCampusInfo = this.renderEditCampusInfo.bind(this);
     this.enrollNewStudent = this.enrollNewStudent.bind(this);
     this.editCampusInfo = this.editCampusInfo.bind(this);
   }
@@ -61,15 +55,6 @@ class CampusDetail extends Component {
       </div>
     )
 
-    // const currentCampus = this.props.fetchCampusById(Number(this.props.match.params.id));
-    // console.log('CAMPUS', this.props.match.params.id);
-    // return (
-    //   <div>
-    //   {
-    //     currentCampus.name
-    //   }
-    //   </div>
-    // )
   }
 
   renderEnrolledStudents() {
@@ -175,6 +160,6 @@ const mapState = ({ Campuses, Students }, ownProps) => {
   };
 }
 
-const mapDispatch = { addStudent, updateCampus /*, fetchCampusById*/ };
+const mapDispatch = { addStudent, updateCampus };
 
 export default connect(mapState, mapDispatch)(CampusDetail);

@@ -26,13 +26,13 @@ class CampusListItem extends Component {
           </h4>
         </NavLink>
         <button
-        className="btn btn-default"
-        onClick={this.deleteThisCampus}>
-        ^^DELETE^^
+          className="btn btn-default"
+          onClick={this.deleteThisCampus}>
+          ^^DELETE^^
         </button>
-        </div>
-      )
-    }
+      </div>
+    )
+  }
 
   deleteThisCampus(event) {
     const { removeCampus, campus } = this.props;

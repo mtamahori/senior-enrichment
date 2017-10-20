@@ -7,8 +7,6 @@ class AllCampusesList extends Component {
   constructor(props) {
     super(props);
 
-    // this.renderNewCampus = this.renderNewCampus.bind(this);
-    // this.renderCurrentCampuses = this.renderCurrentCampuses.bind(this);
     this.submitNewCampus = this.submitNewCampus.bind(this);
   }
 
