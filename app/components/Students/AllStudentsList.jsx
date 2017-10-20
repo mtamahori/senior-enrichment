@@ -34,7 +34,7 @@ class AllStudentsList extends Component {
       <div>
         <form onSubmit={this.submitNewStudent}>
           <div className="new-student-input-body">
-            <h3>ADD NEW STUDENT</h3>
+            <h3>Add New Student</h3>
             <h4 className="new-student-input-field">
               <input
                 name="name"

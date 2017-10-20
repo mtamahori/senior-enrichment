@@ -25,15 +25,14 @@ class CampusListItem extends Component {
             {campus.name}
           </h4>
         </NavLink>
-        <h5>(CampusID: {campus.id})</h5>
         <button
-          className="btn btn-default"
-          onClick={this.deleteThisCampus}>
-          ^^DELETE^^
-          </button>
-      </div>
-    )
-  }
+        className="btn btn-default"
+        onClick={this.deleteThisCampus}>
+        ^^DELETE^^
+        </button>
+        </div>
+      )
+    }
 
   deleteThisCampus(event) {
     const { removeCampus, campus } = this.props;

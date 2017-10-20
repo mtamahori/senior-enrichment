@@ -6,6 +6,8 @@ import StudentListItem from '../Students/StudentListItem';
 import { addStudent } from '../../reducers/Students';
 import { updateCampus } from '../../reducers/Campuses';
 
+// import { fetchCampusById } from '../../reducers/Campuses';
+
 class CampusDetail extends Component {
   constructor(props) {
     super(props);
@@ -47,10 +49,27 @@ class CampusDetail extends Component {
         {
           this.props.Campuses
             .filter(campus => campus.id === this.props.campus.id)
-            .map(campus => <h2 key={campus.id}> {'!!! ' + campus.name + ' !!!'} </h2>)
+            .map(campus =>
+              (
+                <div key={campus.id}>
+                  <h2> {'!!! ' + campus.name + ' !!!'} </h2>
+                  <h5> CampusID: {campus.id} </h5>
+                </div>
+              )
+            )
         }
       </div>
     )
+
+    // const currentCampus = this.props.fetchCampusById(Number(this.props.match.params.id));
+    // console.log('CAMPUS', this.props.match.params.id);
+    // return (
+    //   <div>
+    //   {
+    //     currentCampus.name
+    //   }
+    //   </div>
+    // )
   }
 
   renderEnrolledStudents() {
@@ -138,8 +157,8 @@ class CampusDetail extends Component {
   editCampusInfo(event) {
     event.preventDefault();
     const campus = {
-      name: event.target.name.value,
-      id: this.props.campus.id
+      id: this.props.campus.id,
+      name: event.target.name.value
     };
     this.props.updateCampus(campus);
     event.target.name.value = '';
@@ -156,6 +175,6 @@ const mapState = ({ Campuses, Students }, ownProps) => {
   };
 }
 
-const mapDispatch = { addStudent, updateCampus };
+const mapDispatch = { addStudent, updateCampus /*, fetchCampusById*/ };
 
 export default connect(mapState, mapDispatch)(CampusDetail);

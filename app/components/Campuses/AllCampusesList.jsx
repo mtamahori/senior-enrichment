@@ -31,7 +31,7 @@ class AllCampusesList extends Component {
       <div>
         <form onSubmit={this.submitNewCampus}>
           <div className="new-campus-input-body">
-            <h3>ADD NEW CAMPUS</h3>
+            <h3>Add New Campus</h3>
             <h4 className="new-campus-input-field">
               <input
                 name="name"

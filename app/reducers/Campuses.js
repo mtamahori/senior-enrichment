@@ -9,7 +9,7 @@ const DELETE_CAMPUS = 'DELETE_CAMPUS';
 
 // CAMPUS ACTION CREATORS
 const initCampuses = campuses => ({ type: INIT_CAMPUSES, campuses});
-// const getCampus = campus => ({ type: GET_CAMPUS, campus });
+// const getCampus = id => ({ type: GET_CAMPUS, campus });
 const createCampus = campus => ({ type: CREATE_CAMPUS, campus });
 const editCampus = campus => ({ type: EDIT_CAMPUS, campus});
 const deleteCampus = campus => ({ type: DELETE_CAMPUS, campus});
@@ -47,10 +47,10 @@ export const fetchCampuses = () => dispatch => {
     .catch(err => console.error('Error fetching campuses!', err));
 }
 
-// export const fetchCampusById = campus => dispatch => {
-//   axios.get(`/api/campus/${campus.id}`, campus)
+// export const fetchCampusById = id => dispatch => {
+//   axios.get(`/api/campus/${id}`, id)
 //     .then(res => dispatch(getCampus(res.data)))
-//     .catch(err => console.error(`Error fetching campus: ${campus}`, err));
+//     .catch(err => console.error(`Error fetching campus by ID: ${id}`, err));
 // }
 
 export const addCampus = campus => dispatch => {
