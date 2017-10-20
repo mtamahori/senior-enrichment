@@ -2,12 +2,14 @@ import axios from 'axios';
 
 // STUDENT ACTION TYPES
 const INIT_STUDENTS = 'INIT_STUDENTS';
+const GET_STUDENT = 'GET_STUDENT';
 const CREATE_STUDENT = 'CREATE_STUDENT';
 const EDIT_STUDENT = 'EDIT_STUDENT';
 const DELETE_STUDENT = 'DELETE_STUDENT';
 
 // STUDENT ACTION CREATORS
 const initStudents = students => ({ type: INIT_STUDENTS, students });
+const getStudent = student => ({ type: GET_STUDENT, student});
 const createStudent = student => ({ type: CREATE_STUDENT, student });
 const editStudent = student => ({ type: EDIT_STUDENT, student});
 const deleteStudent = student => ({ type: DELETE_STUDENT, student});
@@ -18,6 +20,9 @@ export default function reducer(students = [], action) {
 
     case INIT_STUDENTS:
       return action.students;
+
+    case GET_STUDENT:
+      return action.student;
 
     case CREATE_STUDENT:
       return [...students, action.student];
@@ -42,6 +47,12 @@ export const fetchStudents = () => dispatch => {
     .catch(err => console.error('Error fetching students!', err));
 }
 
+export const fetchStudentById = student => dispatch => {
+  axios.get(`/api/student/${student.id}`, student)
+    .then(res => dispatch(getStudent(res.data)))
+    .catch(err => console.error(`Error fetching student: ${student}`, err));
+}
+
 export const addStudent = student => dispatch => {
   axios.post('/api/student', student)
     .then(res => dispatch(createStudent(res.data)))
@@ -49,7 +60,7 @@ export const addStudent = student => dispatch => {
 }
 
 export const updateStudent = student => dispatch => {
-  axios.put(`/api/student/${studejnt.id}`, student)
+  axios.put(`/api/student/${student.id}`, student)
     .then(res => dispatch(editStudent(res.data)))
     .catch(err => console.error(`Error updating student: ${student}`, err));
 }

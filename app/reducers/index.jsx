@@ -3,6 +3,11 @@ import axios from 'axios';
 import Campuses from './Campuses';
 import Students from './Students'
 
+export default combineReducers({ Campuses, Students });
+
+export * from './Campuses';
+export * from './Students';
+
 // const initialState = {
 //   campuses: [],
 //   students: []
@@ -13,8 +18,3 @@ import Students from './Students'
 //     default: return state
 //   }
 // };
-
-export default combineReducers({ Campuses, Students });
-
-export * from './Campuses';
-export * from './Students';

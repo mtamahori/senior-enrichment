@@ -8,7 +8,11 @@ const Home = () => (
       <h1>Y O U</h1>
       <h1>F E E L</h1>
       <h1>I T</h1>
-      <h2>An Administrator's Tool for Educational Institutions of the International Underground</h2>
+      <br />
+      <h2>An Administrator's Tool for Managing</h2>
+      <h2>Premier Educational Institutions</h2>
+      <h2>of the</h2>
+      <h2>International Underground</h2>
     </div>
   </div>
 )

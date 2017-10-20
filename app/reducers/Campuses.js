@@ -2,12 +2,14 @@ import axios from 'axios';
 
 // CAMPUS ACTION TYPES
 const INIT_CAMPUSES = 'INIT_CAMPUSES';
+const GET_CAMPUS = 'GET_CAMPUS';
 const CREATE_CAMPUS = 'CREATE_CAMPUS';
 const EDIT_CAMPUS = 'EDIT_CAMPUS';
 const DELETE_CAMPUS = 'DELETE_CAMPUS';
 
 // CAMPUS ACTION CREATORS
 const initCampuses = campuses => ({ type: INIT_CAMPUSES, campuses});
+const getCampus = campus => ({ type: GET_CAMPUS, campus });
 const createCampus = campus => ({ type: CREATE_CAMPUS, campus });
 const editCampus = campus => ({ type: EDIT_CAMPUS, campus});
 const deleteCampus = campus => ({ type: DELETE_CAMPUS, campus});
@@ -18,6 +20,9 @@ export default function reducer(campuses = [], action) {
 
     case INIT_CAMPUSES:
       return action.campuses;
+
+    case GET_CAMPUS:
+      return action.campus;
 
     case CREATE_CAMPUS:
       return [...campuses, action.campus];
@@ -40,6 +45,12 @@ export const fetchCampuses = () => dispatch => {
   axios.get('/api/campus')
     .then(res => dispatch(initCampuses(res.data)))
     .catch(err => console.error('Error fetching campuses!', err));
+}
+
+export const fetchCampusById = campus => dispatch => {
+  axios.get(`/api/campus/${campus.id}`, campus)
+    .then(res => dispatch(getCampus(res.data)))
+    .catch(err => console.error(`Error fetching campus: ${campus}`, err));
 }
 
 export const addCampus = campus => dispatch => {
